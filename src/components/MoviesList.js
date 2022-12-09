@@ -19,6 +19,9 @@ export default function MoviesList(props) {
 const SelectMovieStyle = styled.h2`
     text-align: center;
     line-height: 110px;
+    font-size: 24px;
+    color: #293845;
+    letter-spacing: 0.04em;
 `
 
 const MovieListContainer = styled.div`
@@ -29,3 +32,4 @@ const MovieListContainer = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
 `;
+

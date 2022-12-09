@@ -1,36 +1,25 @@
-import styled from "styled-components";
-import MoviesList from "./MoviesList";
+import Logo from "./Logo";
 import movies from "../MOVIES"
+import MoviesList from "./MoviesList";
+import ScheduleList from "./ScheduleList";
+import styled from "styled-components";
+import sessions from "../SESSIONS"
 
 export default function Cineflex() {
   return (
-    <>
-      <LogoContainer>
-        <h1>CINEFLEX</h1>
-      </LogoContainer>
+    <Body>
+      <Logo />
 
-      <MoviesList movies={movies}/>
-    </>
+      {/* <MoviesList movies={movies}/> */}
+
+      <ScheduleList sessions={sessions}/>
+    </Body>
   );
 }
 
-const LogoContainer = styled.div`
-  position: sticky;
-  top: 0;
-  right: 0;
-  left: auto;
-  width: 100%;
-  height: 67px;
-  background-color: #c3cfd9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  h1 {
-    font-family: 'Roboto';
-    font-weight: 400;
-    font-size: 34px;
-    line-height: 40px;
-    color: #E8833A;
-  }
+const Body = styled.div`
+  width: 375px;
+  height: 100vh;
+  margin: auto;
+  font-family: 'Roboto';
 `;
