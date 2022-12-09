@@ -3,17 +3,16 @@ import ScheduleCardTime from "./ScheduleCardTime"
 
 export default function ScheduleCard(props) {
 
-    const { weekday, date, showtimes } = props.sessions
+    const {days, setSelectedShowTime } = props
 
-    console.log('aqui' + showtimes[1].name)
 
     return (
         <>
             <ScheduleCardContainer>
-                <p>{weekday} - {date}</p>
+                <p>{days.weekday}- {days.date}</p>
                 <div>
-                    {showtimes.map((s) => (
-                        <ScheduleCardTime key={s.id} time={s.name} />
+                    {days.showtimes.map((s) => (
+                        <ScheduleCardTime key={s.id} showtimes={s} weekday={days.weekday} date={days.date} setSelectedShowTime={setSelectedShowTime}/>
                     ))}
                 </div>
             </ScheduleCardContainer>

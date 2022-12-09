@@ -4,22 +4,18 @@ import SelectedMovie from "./SelectedMovie"
 
 export default function Schedule(props) {
     
-    const { sessions } = props
+    const { sessions, selectedMovie, selectedShowTime, setSelectedShowTime } = props
 
-    console.log(sessions)
-    console.log(sessions.days)
-
-    console.log("PQPPPPP ")
     
     return (
         <>
             <SelectTimeStyle>Selecione o horário</SelectTimeStyle>
 
-            {sessions.days.map((s) => (
-                <ScheduleCard key={s.id} sessions={s}/>
+            {sessions.days.map((d) => (
+                <ScheduleCard key={d.id} days={d} setSelectedShowTime={setSelectedShowTime}/>
             ))}
 
-            <SelectedMovie image={sessions.posterURL} title={sessions.title} weekday={sessions.days[0].weekday}/>
+            <SelectedMovie movie={selectedMovie} selectedShowTime={selectedShowTime}/>
             {/* alterar essas props aqui em cima pq deve ser do filme escolhido */}
         </>
 

@@ -1,18 +1,19 @@
 import styled from "styled-components"
 
-export default function SelectedMovie(props) {
+export default function selectedMovie(props) {
 
-    const { image, title, weekday, showtime } = props
+    const { movie, weekday, showtime, selectedShowTime } = props
+
 
     return (
         <>
         <SelectedMovieContainer>
             <div>
-                <img src={image} alt="" />
+                <img src={movie.posterURL} alt="" />
             </div>
             <div id="title">
-                <h3>{title}</h3>
-                <h3>{weekday} - {showtime}</h3>
+                <h3>{movie.title}</h3>
+                <h3>{selectedShowTime[1]} {selectedShowTime.length === 0 ? "" : "-"} {selectedShowTime[0]}</h3>
             </div>
         </SelectedMovieContainer>
         </>
@@ -45,7 +46,7 @@ img{
 }
 
 h3 {
-    font-size: 26px;
+    font-size: 20px;
     color: #293845;
     margin-bottom: 5px;
 }

@@ -4,8 +4,6 @@ export default function SeatCard(props) {
 
   const {seats} = props
 
-  console.log('vamos '+ seats.isAvailable)
-
   return (
     <SeatCardStyle isAvailable={seats.isAvailable}>
       <p>{seats.name}</p>

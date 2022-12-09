@@ -6,17 +6,26 @@ import styled from "styled-components";
 import sessions from "../SESSIONS"
 import SeatsList from "./SeatsList";
 import Success from "./Success";
+import { useState } from "react";
 
 export default function Cineflex() {
+
+  const [selectedMovie, setSelectedMovie] = useState({})
+
+  const [selectedShowTime, setSelectedShowTime] = useState([])
+
+  console.log(selectedShowTime)
+  
+
   return (
     <Body>
       <Logo />
 
-      <MoviesList movies={movies}/>
+      <MoviesList movies={movies} setSelectedMovie={setSelectedMovie}/>
 
-      <ScheduleList sessions={sessions}/>
+      <ScheduleList sessions={sessions} selectedMovie={selectedMovie} selectedShowTime={selectedShowTime} setSelectedShowTime={setSelectedShowTime}/>
 
-      <SeatsList sessions={sessions}/>
+      {/* <SeatsList sessions={sessions} selectedMovie={selectedMovie}/> */}
 
       <Success />
     </Body>

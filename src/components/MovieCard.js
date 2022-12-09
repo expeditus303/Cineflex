@@ -2,11 +2,16 @@ import styled from "styled-components"
 
 export default function MovieCard(props) {
 
-    const { image } = props
+    const { movies, setSelectedMovie } = props
+
+    function selectMovie(s) {
+        setSelectedMovie(s)
+        
+    }
 
     return (
         <MovieCardContainer>
-            <img src={image} alt="" />
+            <img src={movies.posterURL} alt="" onClick={() => selectMovie(movies)}/>
         </MovieCardContainer>
     )
 }

@@ -2,14 +2,14 @@ import styled from "styled-components";
 import MovieCard from "./MovieCard";
 
 export default function MoviesList(props) {
-    const { movies } = props;
+    const { movies, setSelectedMovie } = props;
 
     return (
         <>
             <SelectMovieStyle>Selecione o filme</SelectMovieStyle>
             <MovieListContainer>
                 {movies.map((m) => (
-                <MovieCard image={m.posterURL} />
+                <MovieCard key={m.id} movies={m} setSelectedMovie={setSelectedMovie} />
             ))}
             </MovieListContainer>
         </>

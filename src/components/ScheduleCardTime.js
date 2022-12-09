@@ -1,8 +1,12 @@
 export default function ScheduleCardTime(props) {
 
-    const { time } = props
+    const { showtimes, setSelectedShowTime, weekday, date } = props
+    
+    function selectShowTime(showtime){
+        setSelectedShowTime([showtime, weekday, date])
+    }
 
     return (
-        <button>{time}</button>
+        <button onClick={() => selectShowTime(showtimes.name)}>{showtimes.name}</button>
     )
 }

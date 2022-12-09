@@ -5,7 +5,7 @@ import SelectedMovie from "./SelectedMovie";
 import SEATS from "../SEATS";
 
 export default function SeatsList(props) {
-  const { sessions } = props;
+  const { sessions, selectedMovie } = props;
 
   return (
     <>
@@ -36,7 +36,7 @@ export default function SeatsList(props) {
       <Input />
 
       <SelectedMovie
-        image={sessions.posterURL}
+        image={selectedMovie}
         title={sessions.title}
         weekday={sessions.days[0].weekday}
         showtime={sessions.days[0].showtimes[0].name}
