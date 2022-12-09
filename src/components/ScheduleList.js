@@ -8,16 +8,18 @@ export default function Schedule(props) {
 
     console.log(sessions)
     console.log(sessions.days)
+
+    console.log("PQPPPPP ")
     
     return (
         <>
             <SelectTimeStyle>Selecione o horário</SelectTimeStyle>
 
             {sessions.days.map((s) => (
-                <ScheduleCard key={s.id}sessions={s}/>
+                <ScheduleCard key={s.id} sessions={s}/>
             ))}
 
-            <SelectedMovie image={sessions.posterURL} title={sessions.title}/>
+            <SelectedMovie image={sessions.posterURL} title={sessions.title} weekday={sessions.days[0].weekday}/>
             {/* alterar essas props aqui em cima pq deve ser do filme escolhido */}
         </>
 

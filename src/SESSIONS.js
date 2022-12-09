@@ -5,20 +5,20 @@ const SESSIONS = {
     "overview": "A lowly utility worker is called to the future by a mysterious radio signal, he must leave his dying wife to embark on a journey that will force him to face his deepest fears in an attempt to change the fabric of reality and save humankind from its greatest environmental crisis yet.",
     "releaseDate": "2020-10-01T00:00:00.000Z",
     "days": [
-        {
-            "id": 24062021,
-            "weekday": "Quinta-feira",
-            "date": "24/06/2021",
-            "showtimes": [
-                {
-                    "name": "15:00",
-                    "id": 1
-                },
-                {
-                    "name": "19:00",
-                    "id": 2
-                }
-            ]
+            {
+                "id": 24062021,
+                "weekday": "Quinta-feira",
+                "date": "24/06/2021",
+                "showtimes": [
+                    {
+                        "name": "15:00",
+                        "id": 1
+                    },
+                    {
+                        "name": "19:00",
+                        "id": 2
+                    }
+                ]
         },
         {
             "id": 25062021,

@@ -4,6 +4,7 @@ import MoviesList from "./MoviesList";
 import ScheduleList from "./ScheduleList";
 import styled from "styled-components";
 import sessions from "../SESSIONS"
+import SeatsList from "./SeatsList";
 
 export default function Cineflex() {
   return (
@@ -13,6 +14,8 @@ export default function Cineflex() {
       {/* <MoviesList movies={movies}/> */}
 
       <ScheduleList sessions={sessions}/>
+
+      <SeatsList sessions={sessions}/>
     </Body>
   );
 }
