@@ -6,7 +6,7 @@ export default function MoviesList(props) {
 
     return (
         <>
-            <SelectMovieStyle>Select a movie</SelectMovieStyle>
+            <SelectMovieStyle>Selecione o filme</SelectMovieStyle>
             <MovieListContainer>
                 {movies.map((m) => (
                 <MovieCard image={m.posterURL} />
@@ -22,6 +22,7 @@ const SelectMovieStyle = styled.h2`
     font-size: 24px;
     color: #293845;
     letter-spacing: 0.04em;
+    margin-top: 67px;
 `
 
 const MovieListContainer = styled.div`

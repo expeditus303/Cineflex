@@ -5,17 +5,20 @@ import ScheduleList from "./ScheduleList";
 import styled from "styled-components";
 import sessions from "../SESSIONS"
 import SeatsList from "./SeatsList";
+import Success from "./Success";
 
 export default function Cineflex() {
   return (
     <Body>
       <Logo />
 
-      {/* <MoviesList movies={movies}/> */}
+      <MoviesList movies={movies}/>
 
       <ScheduleList sessions={sessions}/>
 
       <SeatsList sessions={sessions}/>
+
+      <Success />
     </Body>
   );
 }

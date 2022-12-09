@@ -33,5 +33,6 @@ const SelectTimeStyle = styled.h2`
     font-size: 24px;
     color: #293845;
     letter-spacing: 0.04em;
+    margin-top: 67px;
 `
 
