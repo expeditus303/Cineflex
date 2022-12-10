@@ -1,20 +1,25 @@
 import styled from "styled-components";
 
-export default function Input() {
+export default function Input(props) {
+
+  const { name, setName, cpf, setCpf } = props
+
+  console.log(name)
+
   return (
     <InputContainer>
       <p>Nome do comprador:</p>
-      <input type="text" name="" id="" placeholder="Digite seu nome..." />
+      <input type="text" placeholder="Digite seu nome..." value={name} onChange={e => setName([e.target.value])} />
 
       <p>CPF do comprador:</p>
-      <input type="text" name="" id="" placeholder="Digite seu CPF..." />
+      <input type="number" placeholder="Digite seu CPF..." value={cpf} onChange={e => setCpf([e.target.value])}/>
 
       <div><button>Reservar assento(s)</button></div>
     </InputContainer>
   );
 }
 
-const InputContainer = styled.div`
+const InputContainer = styled.form`
   margin: 0px auto;
   width: 80%;
 

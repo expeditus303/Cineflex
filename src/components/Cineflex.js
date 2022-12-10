@@ -15,7 +15,9 @@ export default function Cineflex() {
 
   const [selectedSeat, setSelectedSeat] = useState([]);
 
-  console.log(selectedSeat)
+  const [name, setName] = useState('')
+
+  const [cpf, setCpf] = useState('')
 
   return (
     <Body>
@@ -36,9 +38,13 @@ export default function Cineflex() {
         selectedShowTime={selectedShowTime}
         selectedSeat={selectedSeat}
         setSelectedSeat={setSelectedSeat}
+        name={name}
+        setName={setName}
+        cpf={cpf}
+        setCpf={setCpf}
       />
 
-      <Success />
+      <Success selectedMovie={selectedMovie} selectedShowTime={selectedShowTime} selectedSeat={selectedSeat} name={name} cpf={cpf}/>
     </Body>
   );
 }

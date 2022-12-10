@@ -42,6 +42,10 @@ const SeatCardStyle = styled.button`
   margin-right: 7px;
   margin-bottom: 18px;
 
+  &:hover:disabled {
+    cursor: default;
+  }
+
   &:hover {
     cursor: pointer;
   }

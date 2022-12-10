@@ -11,6 +11,10 @@ export default function SeatsList(props) {
     selectedShowTime,
     selectedSeat,
     setSelectedSeat,
+    name,
+    setName,
+    cpf,
+    setCpf
   } = props;
 
   return (
@@ -43,7 +47,7 @@ export default function SeatsList(props) {
         </div>
       </SeatDescriptionContainer>
 
-      <Input />
+      <Input name={name} setName={setName} cpf={cpf} setCpf={setCpf}/>
 
       <SelectedMovie
         selectedMovie={selectedMovie}

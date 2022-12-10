@@ -1,26 +1,30 @@
 import styled from "styled-components";
 
-export default function Success() {
+export default function Success(props) {
+
+  const { selectedMovie, selectedShowTime, selectedSeat, name, cpf } = props
+
   return (
     <>
       <SuccessStyle>Pedido feito com sucesso!</SuccessStyle>
 
       <InfoContainer>
         <h3 id="first">Filme e sessão</h3>
-        <p>USE STATE Enola</p>
-        <p>USE STATE 24/10</p>
+        <p>{selectedMovie.title}</p>
+        <p>{selectedShowTime[2]} {selectedShowTime[0]}</p>
       </InfoContainer>
 
       <InfoContainer>
         <h3>Ingressos</h3>
-        <p>Assento USE STATE ARRAY</p>
-        <p>Assento USE STATE ARRAY</p>
+        {selectedSeat.map((s) => (
+          <p key={s}>Assento {s}</p>
+        ))}
       </InfoContainer>
 
       <InfoContainer>
         <h3>Comprador</h3>
-        <p>Nome: USE STATE</p>
-        <p>CPF: USE STATE</p>
+        <p>Nome: {name}</p>
+        <p>CPF: {cpf}</p>
       </InfoContainer>
 
       <BackHomeButton>
