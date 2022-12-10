@@ -23,6 +23,7 @@ const InputContainer = styled.div`
     line-height: 21px;
     color: #293845;
     margin-bottom: 6px;
+    margin-left: 3px;
   }
 
   input {
@@ -31,7 +32,7 @@ const InputContainer = styled.div`
     border: 1px solid #d5d5d5;
     border-radius: 3px;
     box-sizing: border-box;
-    margin-bottom: 15px;
+    margin-bottom: 35px;
     padding: 0px 14px;
   }
 

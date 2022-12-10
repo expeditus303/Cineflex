@@ -6,8 +6,13 @@ export default function SeatCard(props) {
 
 
   function selectSeat(s) {
-    const newArray = [...selectedSeat, s]
-    setSelectedSeat(newArray)
+    if (!selectedSeat.includes(s)) {
+      const newArray = [...selectedSeat, s]
+      setSelectedSeat(newArray)
+    } else {
+      const newArray = selectedSeat.filter((sS) => sS !== s)
+      setSelectedSeat(newArray)
+    }
   }
 
   return (
