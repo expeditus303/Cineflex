@@ -5,16 +5,26 @@ import SelectedMovie from "./SelectedMovie";
 import SEATS from "../SEATS";
 
 export default function SeatsList(props) {
-  const { sessions, selectedMovie } = props;
+  const {
+    sessions,
+    selectedMovie,
+    selectedShowTime,
+    selectedSeat,
+    setSelectedSeat,
+  } = props;
 
   return (
     <>
       <SelectSeatStyle>Selecione o(s) assento(s)</SelectSeatStyle>
 
       <SeatCardContainer>
-        
         {SEATS.seats.map((s) => (
-            <SeatCard key={s.id} seats={s} />
+          <SeatCard
+            key={s.id}
+            seats={s}
+            selectedSeat={selectedSeat}
+            setSelectedSeat={setSelectedSeat}
+          />
         ))}
       </SeatCardContainer>
 
@@ -36,10 +46,8 @@ export default function SeatsList(props) {
       <Input />
 
       <SelectedMovie
-        image={selectedMovie}
-        title={sessions.title}
-        weekday={sessions.days[0].weekday}
-        showtime={sessions.days[0].showtimes[0].name}
+        selectedMovie={selectedMovie}
+        selectedShowTime={selectedShowTime}
       />
     </>
   );

@@ -24,4 +24,8 @@ const MovieCardContainer = styled.div`
     img {
         width: 100%;
     }
+
+    &:hover {
+        cursor: pointer;
+    }
 `

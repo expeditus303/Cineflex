@@ -1,3 +1,5 @@
+import styled from "styled-components"
+
 export default function ScheduleCardTime(props) {
 
     const { showtimes, setSelectedShowTime, weekday, date } = props

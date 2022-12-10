@@ -15,8 +15,7 @@ export default function Schedule(props) {
                 <ScheduleCard key={d.id} days={d} setSelectedShowTime={setSelectedShowTime}/>
             ))}
 
-            <SelectedMovie movie={selectedMovie} selectedShowTime={selectedShowTime}/>
-            {/* alterar essas props aqui em cima pq deve ser do filme escolhido */}
+            <SelectedMovie selectedMovie={selectedMovie} selectedShowTime={selectedShowTime}/>
         </>
 
         

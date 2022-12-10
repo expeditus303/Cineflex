@@ -45,14 +45,12 @@ button {
     color: #FFFFFF;
     font-size: 18px;
     letter-spacing: 0.02em;
-
 }
 
-&:last-child {
-    
-    background-color: red;
-    height: 800px;
+button:hover{
+    cursor: pointer;
 }
+
 `
 
 const MovieSelectedContainer = styled.div`

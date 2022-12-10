@@ -2,17 +2,16 @@ import styled from "styled-components"
 
 export default function selectedMovie(props) {
 
-    const { movie, weekday, showtime, selectedShowTime } = props
-
+    const { selectedMovie, selectedShowTime } = props
 
     return (
         <>
         <SelectedMovieContainer>
             <div>
-                <img src={movie.posterURL} alt="" />
+                <img src={selectedMovie.posterURL} alt="" />
             </div>
             <div id="title">
-                <h3>{movie.title}</h3>
+                <h3>{selectedMovie.title}</h3>
                 <h3>{selectedShowTime[1]} {selectedShowTime.length === 0 ? "" : "-"} {selectedShowTime[0]}</h3>
             </div>
         </SelectedMovieContainer>
