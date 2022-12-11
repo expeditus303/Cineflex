@@ -12,7 +12,7 @@ export default function ScheduleCard(props) {
                 <p>{days.weekday}- {days.date}</p>
                 <div>
                     {days.showtimes.map((s) => (
-                        <ScheduleCardTime key={s.id} showtimes={s} weekday={days.weekday} date={days.date} setSelectedShowTime={setSelectedShowTime}/>
+                        <ScheduleCardTime key={s.id} id={s.id} showtimes={s} weekday={days.weekday} date={days.date} setSelectedShowTime={setSelectedShowTime}/>
                     ))}
                 </div>
             </ScheduleCardContainer>

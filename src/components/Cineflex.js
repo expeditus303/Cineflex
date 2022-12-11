@@ -18,6 +18,7 @@ export default function Cineflex() {
 
   const [cpf, setCpf] = useState('')
 
+
   return (
     <Body>
       <Logo />

@@ -15,7 +15,6 @@ export default function Schedule(props) {
         const ask = axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/movies/${selectedMovie.id ? selectedMovie.id : '1'}/showtimes`)
 
         ask.then((answer => setSessions(answer.data.days)))
-        console.log(sessions)
     }, [selectedMovie.id])
 
     

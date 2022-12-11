@@ -3,6 +3,8 @@ import Input from "./Input";
 import SeatCard from "./SeatCard";
 import SelectedMovie from "./SelectedMovie";
 import SEATS from "../SEATS";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function SeatsList(props) {
   const {
@@ -16,12 +18,21 @@ export default function SeatsList(props) {
     setCpf
   } = props;
 
+  const [seats, setSeats] = useState([])
+
+  useEffect(() => {
+    const ask = axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/showtimes/${selectedShowTime.length !== 0 ? selectedShowTime[3] : '1'}/seats`)
+
+    ask.then(answer => setSeats(answer.data.seats))
+
+  }, [selectedShowTime])
+
   return (
     <>
       <SelectSeatStyle>Selecione o(s) assento(s)</SelectSeatStyle>
 
       <SeatCardContainer>
-        {SEATS.seats.map((s) => (
+        {seats.map((s) => (
           <SeatCard
             key={s.id}
             seats={s}
