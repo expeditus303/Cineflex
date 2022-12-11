@@ -7,6 +7,10 @@ export default function SeatCard(props) {
 
   function selectSeat(s) {
     if (!selectedSeat.includes(s)) {
+      if (!seats.isAvailable) {
+        alert('Esse assento não está disponível ')
+      } /*delete this if to turn off alert, and remove the comment bellow to disable the button of selected seats*/
+      console.log(!seats.isAvailable)
       const newArray = [...selectedSeat, s]
       setSelectedSeat(newArray)
     } else {
@@ -16,7 +20,7 @@ export default function SeatCard(props) {
   }
 
   return (
-    <SeatCardStyle isAvailable={seats.isAvailable} selectedSeat={selectedSeat} seats={seats.name} onClick={() => selectSeat(seats.name)} disabled={!seats.isAvailable}>
+    <SeatCardStyle isAvailable={seats.isAvailable} selectedSeat={selectedSeat} seats={seats.name} onClick={() => selectSeat(seats.name)} /*disabled={!seats.isAvailable}*/>
       <p>{seats.name}</p>
     </SeatCardStyle>
   );

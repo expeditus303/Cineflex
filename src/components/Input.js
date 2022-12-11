@@ -1,19 +1,31 @@
 import styled from "styled-components";
 
 export default function Input(props) {
-
-  const { name, setName, cpf, setCpf } = props
-
+  const { name, setName, cpf, setCpf } = props;
 
   return (
     <InputContainer>
       <p>Nome do comprador:</p>
-      <input type="text" placeholder="Digite seu nome..." value={name} onChange={e => setName([e.target.value])} />
+      <input
+        type="text"
+        placeholder="Digite seu nome..."
+        value={name}
+        onChange={(e) => setName([e.target.value])}
+        required
+      />
 
       <p>CPF do comprador:</p>
-      <input type="number" placeholder="Digite seu CPF..." value={cpf} onChange={e => setCpf([e.target.value])}/>
+      <input
+        type="number"
+        placeholder="Digite seu CPF..."
+        value={cpf}
+        onChange={(e) => setCpf([e.target.value])}
+        required
+      />
 
-      <div><button>Reservar assento(s)</button></div>
+      <div>
+        <button type="submit">Reservar assento(s)</button>
+      </div>
     </InputContainer>
   );
 }
@@ -44,6 +56,18 @@ const InputContainer = styled.form`
     font-size: 18px;
     line-height: 21px;
     color: #afafaf;
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
   }
 
   div {
