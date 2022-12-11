@@ -6,7 +6,6 @@ import SEATS from "../SEATS";
 
 export default function SeatsList(props) {
   const {
-    sessions,
     selectedMovie,
     selectedShowTime,
     selectedSeat,

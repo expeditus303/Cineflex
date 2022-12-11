@@ -1,8 +1,18 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import MovieCard from "./MovieCard";
+import axios from 'axios';
 
 export default function MoviesList(props) {
-    const { movies, setSelectedMovie } = props;
+    const {setSelectedMovie } = props;
+
+    const [movies, setMovies] = useState([])
+
+    useEffect(() => {
+        const ask = axios.get("https://mock-api.driven.com.br/api/v8/cineflex/movies")
+
+        ask.then((answer) => setMovies(answer.data))
+    }, [])
 
     return (
         <>

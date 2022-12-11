@@ -1,9 +1,8 @@
 import Logo from "./Logo";
-import movies from "../MOVIES";
 import MoviesList from "./MoviesList";
 import ScheduleList from "./ScheduleList";
 import styled from "styled-components";
-import sessions from "../SESSIONS";
+import sessions from "../SESSIONS"; // posso importar direto no ScheduleList
 import SeatsList from "./SeatsList";
 import Success from "./Success";
 import { useState } from "react";
@@ -23,7 +22,7 @@ export default function Cineflex() {
     <Body>
       <Logo />
 
-      <MoviesList movies={movies} setSelectedMovie={setSelectedMovie} />
+      <MoviesList  setSelectedMovie={setSelectedMovie} />
 
       <ScheduleList
         sessions={sessions}
@@ -33,7 +32,6 @@ export default function Cineflex() {
       />
 
       <SeatsList
-        sessions={sessions}
         selectedMovie={selectedMovie}
         selectedShowTime={selectedShowTime}
         selectedSeat={selectedSeat}
