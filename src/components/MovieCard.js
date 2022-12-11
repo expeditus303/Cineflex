@@ -6,7 +6,6 @@ export default function MovieCard(props) {
 
     function selectMovie(s) {
         setSelectedMovie(s)
-        
     }
 
     return (

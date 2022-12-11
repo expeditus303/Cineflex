@@ -4,7 +4,6 @@ export default function Input(props) {
 
   const { name, setName, cpf, setCpf } = props
 
-  console.log(name)
 
   return (
     <InputContainer>
