@@ -8,9 +8,6 @@ export default function MoviesList(props) {
   const { setSelectedMovie, setSelectedShowTime, setSelectedSeat } = props;
 
   const [movies, setMovies] = useState([]);
-  console.log("aqui manow");
-
-  console.log(movies);
 
   const { idFilme } = useParams();
 
@@ -35,6 +32,7 @@ export default function MoviesList(props) {
               setSelectedShowTime={setSelectedShowTime}
               setSelectedSeat={setSelectedSeat}
             />
+
           </Link>
         ))}
 
@@ -47,6 +45,9 @@ export default function MoviesList(props) {
     </>
   );
 }
+
+
+
 
 const SelectMovieStyle = styled.h2`
   text-align: center;

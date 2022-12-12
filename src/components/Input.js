@@ -19,11 +19,8 @@ export default function Input(props) {
       reservedSeats
     );
 
-    promisse.then(Navigate("/sucesso"));
-
-    console.log(reservedSeats);
+    promisse.then(() => console.log("foi enviado"));
   }
-
 
   return (
     <InputContainer onSubmit={reserveSeats}>
@@ -32,6 +29,7 @@ export default function Input(props) {
         type="text"
         placeholder="Digite seu nome..."
         value={name}
+        name="Name"
         onChange={(e) => setName([e.target.value])}
         required
       />
@@ -41,14 +39,15 @@ export default function Input(props) {
         type="number"
         placeholder="Digite seu CPF..."
         value={cpf}
+        name="CPF"
         onChange={(e) => setCpf([e.target.value])}
         required
       />
 
       <div>
-          <button type="submit" onClick={reserveSeats}>
-            Reservar assento(s)
-          </button>
+        <button type="submit" onClick={reserveSeats}>
+          Reservar assento(s)
+        </button>
       </div>
     </InputContainer>
   );

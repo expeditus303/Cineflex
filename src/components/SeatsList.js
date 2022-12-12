@@ -2,9 +2,9 @@ import styled from "styled-components";
 import Input from "./Input";
 import SeatCard from "./SeatCard";
 import SelectedMovie from "./SelectedMovie";
-import SEATS from "../SEATS";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function SeatsList(props) {
   const {
@@ -20,15 +20,22 @@ export default function SeatsList(props) {
 
   const [seats, setSeats] = useState([])
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const ask = axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/showtimes/${selectedShowTime.length !== 0 ? selectedShowTime[3] : '1'}/seats`)
 
     ask.then(answer => setSeats(answer.data.seats))
 
+    window.scrollTo(0, 0)
+
   }, [selectedShowTime])
 
   return (
     <>
+      <BackButton onClick={() => navigate(-1)}>
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </BackButton>
       <SelectSeatStyle>Selecione o(s) assento(s)</SelectSeatStyle>
 
       <SeatCardContainer>
@@ -66,6 +73,22 @@ export default function SeatsList(props) {
     </>
   );
 }
+
+const BackButton = styled.button`
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: auto;
+  width: 67px;
+  height: 67px;
+  background-color: #E8833A;;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: #c3cfd9;
+  border-style: none;
+`;
 
 const SelectSeatStyle = styled.h2`
   text-align: center;

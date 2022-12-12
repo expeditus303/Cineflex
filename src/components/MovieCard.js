@@ -1,32 +1,66 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export default function MovieCard(props) {
+  const { movies, setSelectedMovie, setSelectedShowTime, setSelectedSeat } = props;
 
-    const { movies, setSelectedMovie, setSelectedShowTime, setSelectedSeat } = props
+  function selectMovie(s) {
+    setSelectedMovie(s);
+    setSelectedShowTime([]);
+    setSelectedSeat([]);
+  }
 
-    function selectMovie(s) {
-        setSelectedMovie(s)
-        setSelectedShowTime([])
-        setSelectedSeat([])
-    }
-
-    return (
-        <MovieCardContainer>
-            <img src={movies.posterURL} alt="" onClick={() => selectMovie(movies)}/>
-        </MovieCardContainer>
-    )
+  return (
+    <MovieCardContainer className="container" onClick={() => selectMovie(movies)}>
+      <img src={movies.posterURL} alt="" />
+      <HiddenName className="overlay">
+        <div>{movies.title}</div>
+      </HiddenName>
+    </MovieCardContainer>
+  );
 }
 
 const MovieCardContainer = styled.div`
-    width: 129px;
-    height: 193px;
-    margin-bottom: 27px;
-    
-    img {
-        width: 100%;
-    }
+  width: 129px;
+  height: 193px;
+  margin-bottom: 27px;
+  position: relative;
 
-    &:hover {
-        cursor: pointer;
-    }
-`
+  img {
+    width: 100%;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:hover .overlay {
+    height: 100%;
+  }
+`;
+
+const HiddenName = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  opacity: 0.85;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: 0.5s ease;
+
+  div {
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    font-weight: 700;
+    line-height: 20px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+`;

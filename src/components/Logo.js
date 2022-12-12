@@ -10,6 +10,7 @@ export default function Logo() {
 
 const LogoContainer = styled.div`
   position: fixed;
+  z-index: 2;
   top: 0;
   left: auto;
   width: 375px;
