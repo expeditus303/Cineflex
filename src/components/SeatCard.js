@@ -12,7 +12,6 @@ export default function SeatCard(props) {
     
       const newArray = [...selectedSeat, id]
       setSelectedSeat(newArray)
-      console.log(selectedSeat)
     } else {
       const newArray = selectedSeat.filter((sS) => sS !== id)
       setSelectedSeat(newArray)

@@ -1,10 +1,29 @@
+import axios from "axios";
 import styled from "styled-components";
 
 export default function Input(props) {
   const { name, setName, cpf, setCpf, selectedSeat } = props;
 
-  // console.log('batatão')
-  // console.log(selectedSeat)
+
+
+  function reserveSeats(event){  
+    event.preventDefault()
+
+    let reservedSeats = {
+      ids: selectedSeat,
+      name: name,
+      cpf: cpf
+    }
+
+    const promisse = axios.post("https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many", reservedSeats)
+
+    promisse.then(() => alert('Assentos reservados com sucesso'))
+
+    console.log(reservedSeats)
+  }
+ 
+
+
 
   return (
     <InputContainer>
@@ -27,7 +46,7 @@ export default function Input(props) {
       />
 
       <div>
-        <button type="submit">Reservar assento(s)</button>
+        <button type="submit" onClick={reserveSeats}>Reservar assento(s)</button>
       </div>
     </InputContainer>
   );

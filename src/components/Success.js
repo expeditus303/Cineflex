@@ -3,8 +3,6 @@ import styled from "styled-components";
 export default function Success(props) {
 
   const { selectedMovie, selectedShowTime, selectedSeat, name, cpf } = props
-  console.log('selected')
-  console.log(selectedSeat)
 
   return (
     <>
