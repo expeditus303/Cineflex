@@ -1,32 +1,32 @@
 import axios from "axios";
+import { Link, Navigate } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Input(props) {
   const { name, setName, cpf, setCpf, selectedSeat } = props;
 
-
-
-  function reserveSeats(event){  
-    event.preventDefault()
+  function reserveSeats(event) {
+    event.preventDefault();
 
     let reservedSeats = {
       ids: selectedSeat,
       name: name,
-      cpf: cpf
-    }
+      cpf: cpf,
+    };
 
-    const promisse = axios.post("https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many", reservedSeats)
+    const promisse = axios.post(
+      "https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many",
+      reservedSeats
+    );
 
-    promisse.then(() => alert('Assentos reservados com sucesso'))
+    promisse.then(Navigate("/sucesso"));
 
-    console.log(reservedSeats)
+    console.log(reservedSeats);
   }
- 
-
 
 
   return (
-    <InputContainer>
+    <InputContainer onSubmit={reserveSeats}>
       <p>Nome do comprador:</p>
       <input
         type="text"
@@ -46,7 +46,9 @@ export default function Input(props) {
       />
 
       <div>
-        <button type="submit" onClick={reserveSeats}>Reservar assento(s)</button>
+          <button type="submit" onClick={reserveSeats}>
+            Reservar assento(s)
+          </button>
       </div>
     </InputContainer>
   );

@@ -2,11 +2,17 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import MovieCard from "./MovieCard";
 import axios from 'axios';
+import { Link, useParams } from "react-router-dom";
 
 export default function MoviesList(props) {
     const {setSelectedMovie, setSelectedShowTime, setSelectedSeat } = props;
 
     const [movies, setMovies] = useState([])
+    console.log('aqui manow')
+
+    console.log(movies)
+
+    const { idFilme } = useParams()
 
     useEffect(() => {
         const ask = axios.get("https://mock-api.driven.com.br/api/v8/cineflex/movies")
@@ -19,7 +25,9 @@ export default function MoviesList(props) {
             <SelectMovieStyle>Selecione o filme</SelectMovieStyle>
             <MovieListContainer>
                 {movies.map((m) => (
+                <Link to={`/sessoes/${m.id}`} key={m.id}>
                 <MovieCard key={m.id} movies={m} setSelectedMovie={setSelectedMovie} setSelectedShowTime={setSelectedShowTime} setSelectedSeat={setSelectedSeat} />
+                </Link> 
             ))}
             </MovieListContainer>
         </>

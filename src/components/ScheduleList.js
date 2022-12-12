@@ -27,11 +27,18 @@ export default function Schedule(props) {
             ))}
 
             <SelectedMovie selectedMovie={selectedMovie} selectedShowTime={selectedShowTime}/>
+
+            <Teste></Teste>
         </>
 
         
     )
 }
+
+
+const Teste = styled.div`
+height: 150px;
+`
 
 const SelectTimeStyle = styled.h2`
     text-align: center;
@@ -40,5 +47,6 @@ const SelectTimeStyle = styled.h2`
     color: #293845;
     letter-spacing: 0.04em;
     margin-top: 67px;
+
 `
 

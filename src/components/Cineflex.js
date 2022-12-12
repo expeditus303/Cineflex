@@ -6,6 +6,7 @@ import sessions from "../SESSIONS"; // posso importar direto no ScheduleList
 import SeatsList from "./SeatsList";
 import Success from "./Success";
 import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export default function Cineflex() {
   const [selectedMovie, setSelectedMovie] = useState({});
@@ -14,38 +15,70 @@ export default function Cineflex() {
 
   const [selectedSeat, setSelectedSeat] = useState([]);
 
-  const [name, setName] = useState('')
+  const [name, setName] = useState("");
 
-  const [cpf, setCpf] = useState('')
-
+  const [cpf, setCpf] = useState("");
 
   return (
-    <Body>
-      <Logo />
+    <BrowserRouter>
+      <Body>
+        <Logo />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <MoviesList
+                setSelectedMovie={setSelectedMovie}
+                setSelectedShowTime={setSelectedShowTime}
+                setSelectedSeat={setSelectedSeat}
+              />
+            }
+          />
 
-      <MoviesList  setSelectedMovie={setSelectedMovie} setSelectedShowTime={setSelectedShowTime} setSelectedSeat={setSelectedSeat}/>
+          <Route
+            path="/sessoes/:idFilme"
+            element={
+              <ScheduleList
+                sessions={sessions}
+                selectedMovie={selectedMovie}
+                selectedShowTime={selectedShowTime}
+                setSelectedShowTime={setSelectedShowTime}
+                setSelectedSeat={setSelectedSeat}
+              />
+            }
+          />
 
-      <ScheduleList
-        sessions={sessions}
-        selectedMovie={selectedMovie}
-        selectedShowTime={selectedShowTime}
-        setSelectedShowTime={setSelectedShowTime}
-        setSelectedSeat={setSelectedSeat}
-      />
+          <Route
+            path="/assentos/:idSessao"
+            element={
+              <SeatsList
+                selectedMovie={selectedMovie}
+                selectedShowTime={selectedShowTime}
+                selectedSeat={selectedSeat}
+                setSelectedSeat={setSelectedSeat}
+                name={name}
+                setName={setName}
+                cpf={cpf}
+                setCpf={setCpf}
+              />
+            }
+          />
 
-      <SeatsList
-        selectedMovie={selectedMovie}
-        selectedShowTime={selectedShowTime}
-        selectedSeat={selectedSeat}
-        setSelectedSeat={setSelectedSeat}
-        name={name}
-        setName={setName}
-        cpf={cpf}
-        setCpf={setCpf}
-      />
-
-      <Success selectedMovie={selectedMovie} selectedShowTime={selectedShowTime} selectedSeat={selectedSeat} name={name} cpf={cpf}/>
-    </Body>
+          <Route
+            path="/sucesso"
+            element={
+              <Success
+                selectedMovie={selectedMovie}
+                selectedShowTime={selectedShowTime}
+                selectedSeat={selectedSeat}
+                name={name}
+                cpf={cpf}
+              />
+            }
+          />
+        </Routes>
+      </Body>
+    </BrowserRouter>
   );
 }
 
