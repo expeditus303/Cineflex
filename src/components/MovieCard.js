@@ -2,10 +2,12 @@ import styled from "styled-components"
 
 export default function MovieCard(props) {
 
-    const { movies, setSelectedMovie } = props
+    const { movies, setSelectedMovie, setSelectedShowTime, setSelectedSeat } = props
 
     function selectMovie(s) {
         setSelectedMovie(s)
+        setSelectedShowTime([])
+        setSelectedSeat([])
     }
 
     return (

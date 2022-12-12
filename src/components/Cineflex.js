@@ -23,13 +23,14 @@ export default function Cineflex() {
     <Body>
       <Logo />
 
-      <MoviesList  setSelectedMovie={setSelectedMovie} />
+      <MoviesList  setSelectedMovie={setSelectedMovie} setSelectedShowTime={setSelectedShowTime} setSelectedSeat={setSelectedSeat}/>
 
       <ScheduleList
         sessions={sessions}
         selectedMovie={selectedMovie}
         selectedShowTime={selectedShowTime}
         setSelectedShowTime={setSelectedShowTime}
+        setSelectedSeat={setSelectedSeat}
       />
 
       <SeatsList

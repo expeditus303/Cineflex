@@ -3,6 +3,8 @@ import styled from "styled-components";
 export default function Success(props) {
 
   const { selectedMovie, selectedShowTime, selectedSeat, name, cpf } = props
+  console.log('selected')
+  console.log(selectedSeat)
 
   return (
     <>
@@ -17,7 +19,7 @@ export default function Success(props) {
       <InfoContainer>
         <h3>Ingressos</h3>
         {selectedSeat.map((s) => (
-          <p key={s}>Assento {s}</p>
+          <p key={s}>Assento {s > 50 ? s % 50 : s}</p>
         ))}
       </InfoContainer>
 

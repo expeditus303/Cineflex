@@ -6,7 +6,7 @@ import SelectedMovie from "./SelectedMovie"
 
 export default function Schedule(props) {
     
-    const {selectedMovie, selectedShowTime, setSelectedShowTime } = props
+    const {selectedMovie, selectedShowTime, setSelectedShowTime, setSelectedSeat } = props
 
     const [sessions, setSessions] = useState([])
     
@@ -23,7 +23,7 @@ export default function Schedule(props) {
             <SelectTimeStyle>Selecione o horário</SelectTimeStyle>
 
             {sessions.map((d) => (
-                <ScheduleCard key={d.id} days={d} setSelectedShowTime={setSelectedShowTime}/>
+                <ScheduleCard key={d.id} days={d} setSelectedShowTime={setSelectedShowTime} setSelectedSeat={setSelectedSeat}/>
             ))}
 
             <SelectedMovie selectedMovie={selectedMovie} selectedShowTime={selectedShowTime}/>

@@ -57,7 +57,7 @@ export default function SeatsList(props) {
         </div>
       </SeatDescriptionContainer>
 
-      <Input name={name} setName={setName} cpf={cpf} setCpf={setCpf}/>
+      <Input name={name} setName={setName} cpf={cpf} setCpf={setCpf} selectedSeat={selectedSeat}/>
 
       <SelectedMovie
         selectedMovie={selectedMovie}

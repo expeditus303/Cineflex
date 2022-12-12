@@ -4,23 +4,23 @@ export default function SeatCard(props) {
 
   const {seats, selectedSeat, setSelectedSeat} = props
 
-
-  function selectSeat(s) {
-    if (!selectedSeat.includes(s)) {
+  function selectSeat(id, name) {
+    if (!selectedSeat.includes(id)) {
       if (!seats.isAvailable) {
         alert('Esse assento não está disponível ')
       } /*delete this if to turn off alert, and remove the comment bellow to disable the button of selected seats*/
-      console.log(!seats.isAvailable)
-      const newArray = [...selectedSeat, s]
+    
+      const newArray = [...selectedSeat, id]
       setSelectedSeat(newArray)
+      console.log(selectedSeat)
     } else {
-      const newArray = selectedSeat.filter((sS) => sS !== s)
+      const newArray = selectedSeat.filter((sS) => sS !== id)
       setSelectedSeat(newArray)
     }
   }
 
   return (
-    <SeatCardStyle isAvailable={seats.isAvailable} selectedSeat={selectedSeat} seats={seats.name} onClick={() => selectSeat(seats.name)} /*disabled={!seats.isAvailable}*/>
+    <SeatCardStyle isAvailable={seats.isAvailable} selectedSeat={selectedSeat} seats={seats.id} onClick={() => selectSeat(seats.id, seats.name)} /*disabled={!seats.isAvailable}*/>
       <p>{seats.name}</p>
     </SeatCardStyle>
   );

@@ -4,7 +4,7 @@ import MovieCard from "./MovieCard";
 import axios from 'axios';
 
 export default function MoviesList(props) {
-    const {setSelectedMovie } = props;
+    const {setSelectedMovie, setSelectedShowTime, setSelectedSeat } = props;
 
     const [movies, setMovies] = useState([])
 
@@ -19,7 +19,7 @@ export default function MoviesList(props) {
             <SelectMovieStyle>Selecione o filme</SelectMovieStyle>
             <MovieListContainer>
                 {movies.map((m) => (
-                <MovieCard key={m.id} movies={m} setSelectedMovie={setSelectedMovie} />
+                <MovieCard key={m.id} movies={m} setSelectedMovie={setSelectedMovie} setSelectedShowTime={setSelectedShowTime} setSelectedSeat={setSelectedSeat} />
             ))}
             </MovieListContainer>
         </>
