@@ -87,4 +87,8 @@ const Body = styled.div`
   height: 100vh;
   margin: auto;
   font-family: "Roboto";
+
+  button:hover {
+    cursor: pointer;
+  }
 `;
