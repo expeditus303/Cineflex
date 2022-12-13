@@ -3,11 +3,16 @@ import styled from "styled-components";
 import MovieCard from "./MovieCard";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
+import loading from "../assets/loading.gif";
 
 export default function MoviesList(props) {
-  const { setSelectedMovie, setSelectedShowTime, setSelectedSeat } = props;
+  const {
+    setSelectedMovie,
+    setSelectedShowTime,
+    setSelectedSeat,
+  } = props;
 
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState(undefined);
 
   const { idFilme } = useParams();
 
@@ -18,6 +23,14 @@ export default function MoviesList(props) {
 
     ask.then((answer) => setMovies(answer.data));
   }, []);
+
+  if (movies === undefined) {
+    return (
+      <Loading>
+        <img src={loading} alt="" />
+      </Loading>
+    );
+  }
 
   return (
     <>
@@ -32,22 +45,24 @@ export default function MoviesList(props) {
               setSelectedShowTime={setSelectedShowTime}
               setSelectedSeat={setSelectedSeat}
             />
-
           </Link>
         ))}
 
         <ButtonToTop>
-            <button onClick={() => window.scrollTo(0, 0)}>
-            Voltar ao topo
-            </button> 
+          <button onClick={() => window.scrollTo(0, 0)}>Voltar ao topo</button>
         </ButtonToTop>
       </MovieListContainer>
     </>
   );
 }
 
-
-
+const Loading = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const SelectMovieStyle = styled.h2`
   text-align: center;
@@ -68,21 +83,20 @@ const MovieListContainer = styled.div`
 `;
 
 const ButtonToTop = styled.div`
-margin-bottom: 40px;
-width: 100%;
-display: flex;
-justify-content: center;
+  margin-bottom: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 
-
-button {
+  button {
     display: block;
     height: 50px;
     width: 100%;
     border-radius: 8px;
-    background-color: #E8833A;
+    background-color: #e8833a;
     color: #ffffff;
     font-size: 18px;
     font-weight: 800;
     border-style: none;
-}
-`
+  }
+`;

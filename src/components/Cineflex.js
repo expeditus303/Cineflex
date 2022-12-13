@@ -2,14 +2,14 @@ import Logo from "./Logo";
 import MoviesList from "./MoviesList";
 import ScheduleList from "./ScheduleList";
 import styled from "styled-components";
-import sessions from "../SESSIONS"; // posso importar direto no ScheduleList
 import SeatsList from "./SeatsList";
 import Success from "./Success";
 import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+
 export default function Cineflex() {
-  const [selectedMovie, setSelectedMovie] = useState({});
+  const [selectedMovie, setSelectedMovie] = useState(undefined);
 
   const [selectedShowTime, setSelectedShowTime] = useState([]);
 
@@ -39,7 +39,6 @@ export default function Cineflex() {
             path="/sessoes/:idFilme"
             element={
               <ScheduleList
-                sessions={sessions}
                 selectedMovie={selectedMovie}
                 selectedShowTime={selectedShowTime}
                 setSelectedShowTime={setSelectedShowTime}
@@ -69,10 +68,15 @@ export default function Cineflex() {
             element={
               <Success
                 selectedMovie={selectedMovie}
+                setSelectedMovie={setSelectedMovie}
                 selectedShowTime={selectedShowTime}
+                setSelectedShowTime={setSelectedShowTime}
                 selectedSeat={selectedSeat}
+                setSelectedSeat={setSelectedSeat}
                 name={name}
+                setName={setName}
                 cpf={cpf}
+                setCpf={setCpf}
               />
             }
           />

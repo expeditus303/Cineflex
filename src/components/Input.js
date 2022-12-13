@@ -1,9 +1,11 @@
 import axios from "axios";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Input(props) {
   const { name, setName, cpf, setCpf, selectedSeat } = props;
+
+  const navigate = useNavigate();
 
   function reserveSeats(event) {
     event.preventDefault();
@@ -19,8 +21,9 @@ export default function Input(props) {
       reservedSeats
     );
 
-    promisse.then(() => console.log("foi enviado"));
+    promisse.then(() => navigate("/sucesso"));
   }
+  
 
   return (
     <InputContainer onSubmit={reserveSeats}>
@@ -45,9 +48,9 @@ export default function Input(props) {
       />
 
       <div>
-        <button type="submit" onClick={reserveSeats}>
-          Reservar assento(s)
-        </button>
+          <button type="submit">
+            Reservar assento(s)
+          </button>
       </div>
     </InputContainer>
   );

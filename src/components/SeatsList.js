@@ -5,6 +5,7 @@ import SelectedMovie from "./SelectedMovie";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import loading from "../assets/loading.gif";
 
 export default function SeatsList(props) {
   const {
@@ -18,18 +19,28 @@ export default function SeatsList(props) {
     setCpf
   } = props;
 
-  const [seats, setSeats] = useState([])
+  const [seats, setSeats] = useState(undefined)
 
   const navigate = useNavigate();
 
   useEffect(() => {
     const ask = axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/showtimes/${selectedShowTime.length !== 0 ? selectedShowTime[3] : '1'}/seats`)
 
-    ask.then(answer => setSeats(answer.data.seats))
-
     window.scrollTo(0, 0)
 
+    ask.then(answer => setSeats(answer.data.seats))
   }, [selectedShowTime])
+
+
+  
+  if (seats === undefined) {
+    return (
+      <Loading>
+        <img src={loading} alt="" />
+      </Loading>
+    );
+  }
+
 
   return (
     <>
@@ -73,6 +84,14 @@ export default function SeatsList(props) {
     </>
   );
 }
+
+const Loading = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const BackButton = styled.button`
   position: fixed;

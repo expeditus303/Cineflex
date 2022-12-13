@@ -1,8 +1,23 @@
+import { redirect, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Success(props) {
 
-  const { selectedMovie, selectedShowTime, selectedSeat, name, cpf } = props
+  const { selectedMovie, setSelectedMovie, selectedShowTime, setSelectedShowTime, selectedSeat, setSelectedSeat, name, setName, cpf, setCpf } = props
+
+  const navigate = useNavigate();
+
+  window.scrollTo(0, 0)
+
+  function restart() {
+    setSelectedMovie({})
+    setSelectedShowTime([])
+    setSelectedSeat([])
+    setName("")
+    setCpf("")
+
+    return navigate("/")
+  }
 
   return (
     <>
@@ -27,8 +42,9 @@ export default function Success(props) {
         <p>CPF: {cpf}</p>
       </InfoContainer>
 
+      
       <BackHomeButton>
-        <button>Voltar pra Home</button>
+        <button onClick={restart}>Voltar pra Home</button>
       </BackHomeButton>
     </>
   );

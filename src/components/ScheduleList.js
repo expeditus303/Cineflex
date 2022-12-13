@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import ScheduleCard from "./ScheduleCard";
 import SelectedMovie from "./SelectedMovie";
+import loading from "../assets/loading.gif";
 
 export default function Schedule(props) {
   const {
@@ -13,7 +14,7 @@ export default function Schedule(props) {
     setSelectedSeat,
   } = props;
 
-  const [sessions, setSessions] = useState([]);
+  const [sessions, setSessions] = useState(undefined);
 
   const navigate = useNavigate();
 
@@ -28,6 +29,14 @@ export default function Schedule(props) {
 
     ask.then((answer) => setSessions(answer.data.days));
   }, [selectedMovie.id]);
+
+  if (sessions === undefined) {
+    return (
+      <Loading>
+        <img src={loading} alt="" />
+      </Loading>
+    );
+  }
 
   return (
     <>
@@ -54,6 +63,14 @@ export default function Schedule(props) {
     </>
   );
 }
+
+const Loading = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const Margin = styled.div`
   height: 150px;

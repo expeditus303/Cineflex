@@ -4,8 +4,6 @@ export default function selectedMovie(props) {
 
     const { selectedMovie, selectedShowTime } = props
 
-    console.log(selectedMovie)
-
     return (
         <>
         <SelectedMovieContainer>
