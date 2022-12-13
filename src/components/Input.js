@@ -8,6 +8,7 @@ export default function Input(props) {
   const { name, setName, cpf, setCpf, selectedSeat } = props;
 
   const cpfString = cpf.toString();
+  const nameString = name.toString()
 
   const navigate = useNavigate();
 
@@ -19,8 +20,8 @@ export default function Input(props) {
     } else {
       let reservedSeats = {
         ids: selectedSeat,
-        name: name,
-        cpf: cpf,
+        name: nameString,
+        cpf: cpfString,
       };
 
       console.log(reservedSeats);
