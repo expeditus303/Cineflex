@@ -49,10 +49,9 @@ export default function Input(props) {
       />
 
       <p>CPF do comprador:</p>
-      <IMaskInput
-        mask="000.000.000-00"
+      <input
         maxLength={14}
-        type="text"
+        type="number"
         placeholder="Digite seu CPF..."
         value={cpfString}
         name="CPF"
