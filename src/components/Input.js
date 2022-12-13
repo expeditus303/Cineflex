@@ -2,23 +2,19 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { validate } from "gerador-validador-cpf";
+import { IMaskInput } from "react-imask";
 
 export default function Input(props) {
   const { name, setName, cpf, setCpf, selectedSeat } = props;
+
+  const cpfString = cpf.toString();
 
   const navigate = useNavigate();
 
   function reserveSeats(event) {
     event.preventDefault();
 
-    const cpfString = cpf.toString();
-    console.log("string");
-    console.log(cpfString);
-
     if (!validate(cpfString)) {
-      console.log(cpf);
-      console.log(typeof cpf);
-
       alert("Insira um CPF válido");
     } else {
       let reservedSeats = {
@@ -52,11 +48,12 @@ export default function Input(props) {
       />
 
       <p>CPF do comprador:</p>
-      <input
+      <IMaskInput
+        mask="000.000.000-00"
         maxLength={14}
         type="text"
         placeholder="Digite seu CPF..."
-        value={cpf}
+        value={cpfString}
         name="CPF"
         onChange={(e) => setCpf([e.target.value])}
         required
