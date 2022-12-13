@@ -1,6 +1,7 @@
 import axios from "axios";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { validate } from "gerador-validador-cpf";
 
 export default function Input(props) {
   const { name, setName, cpf, setCpf, selectedSeat } = props;
@@ -10,25 +11,38 @@ export default function Input(props) {
   function reserveSeats(event) {
     event.preventDefault();
 
-    let reservedSeats = {
-      ids: selectedSeat,
-      name: name,
-      cpf: cpf,
-    };
+    const cpfString = cpf.toString();
+    console.log("string");
+    console.log(cpfString);
 
-    const promisse = axios.post(
-      "https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many",
-      reservedSeats
-    );
+    if (!validate(cpfString)) {
+      console.log(cpf);
+      console.log(typeof cpf);
 
-    promisse.then(() => navigate("/sucesso"));
+      alert("Insira um CPF válido");
+    } else {
+      let reservedSeats = {
+        ids: selectedSeat,
+        name: name,
+        cpf: cpf,
+      };
+
+      console.log(reservedSeats);
+
+      const promisse = axios.post(
+        "https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many",
+        reservedSeats
+      );
+
+      promisse.then(() => navigate("/sucesso"));
+    }
   }
-  
 
   return (
     <InputContainer onSubmit={reserveSeats}>
       <p>Nome do comprador:</p>
       <input
+        maxLength={14}
         type="text"
         placeholder="Digite seu nome..."
         value={name}
@@ -39,7 +53,8 @@ export default function Input(props) {
 
       <p>CPF do comprador:</p>
       <input
-        type="number"
+        maxLength={14}
+        type="text"
         placeholder="Digite seu CPF..."
         value={cpf}
         name="CPF"
@@ -48,9 +63,7 @@ export default function Input(props) {
       />
 
       <div>
-          <button type="submit">
-            Reservar assento(s)
-          </button>
+        <button type="submit">Reservar assento(s)</button>
       </div>
     </InputContainer>
   );
@@ -71,7 +84,8 @@ const InputContainer = styled.form`
   input {
     width: 100%;
     height: 51px;
-    border: 1px solid #d5d5d5;
+    /* border: 1px solid #d5d5d5; */
+    border: none;
     border-radius: 3px;
     box-sizing: border-box;
     margin-bottom: 35px;
