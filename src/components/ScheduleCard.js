@@ -7,7 +7,7 @@ export default function ScheduleCard(props) {
 
   return (
     <>
-      <ScheduleCardContainer>
+      <ScheduleCardContainer data-test="movie-day">
         <p>
           {days.weekday} - {days.date}
         </p>

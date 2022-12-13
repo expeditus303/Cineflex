@@ -45,6 +45,7 @@ export default function Input(props) {
         name="Name"
         onChange={(e) => setName([e.target.value])}
         required
+        data-test="client-name"
       />
 
       <p>CPF do comprador:</p>
@@ -57,10 +58,11 @@ export default function Input(props) {
         name="CPF"
         onChange={(e) => setCpf([e.target.value])}
         required
+        data-test="client-cpf"
       />
 
       <div>
-        <button type="submit">Reservar assento(s)</button>
+        <button type="submit" data-test="book-seat-btn">Reservar assento(s)</button>
       </div>
     </InputContainer>
   );

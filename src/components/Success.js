@@ -23,20 +23,20 @@ export default function Success(props) {
     <>
       <SuccessStyle>Pedido feito com sucesso!</SuccessStyle>
 
-      <InfoContainer>
+      <InfoContainer data-test="movie-info">
         <h3 id="first">Filme e sessão</h3>
         <p>{selectedMovie.title}</p>
         <p>{selectedShowTime[2]} {selectedShowTime[0]}</p>
       </InfoContainer>
 
-      <InfoContainer>
+      <InfoContainer data-test="seats-info">
         <h3>Ingressos</h3>
         {selectedSeat.map((s) => (
           <p key={s}>Assento {s > 50 ? s % 50 : s}</p>
         ))}
       </InfoContainer>
 
-      <InfoContainer>
+      <InfoContainer data-test="client-info">
         <h3>Comprador</h3>
         <p>Nome: {name}</p>
         <p>CPF: {cpf}</p>
@@ -44,7 +44,7 @@ export default function Success(props) {
 
       
       <BackHomeButton>
-        <button onClick={restart}>Voltar pra Home</button>
+        <button onClick={restart} data-test="go-home-btn">Voltar pra Home</button>
       </BackHomeButton>
     </>
   );

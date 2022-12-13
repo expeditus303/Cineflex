@@ -19,7 +19,7 @@ export default function SeatCard(props) {
   }
 
   return (
-    <SeatCardStyle isAvailable={seats.isAvailable} selectedSeat={selectedSeat} seats={seats.id} onClick={() => selectSeat(seats.id, seats.name)} /*disabled={!seats.isAvailable}*/>
+    <SeatCardStyle isAvailable={seats.isAvailable} selectedSeat={selectedSeat} seats={seats.id} onClick={() => selectSeat(seats.id, seats.name)} data-test="seat" /*disabled={!seats.isAvailable}*/>
       <p>{seats.name}</p>
     </SeatCardStyle>
   );

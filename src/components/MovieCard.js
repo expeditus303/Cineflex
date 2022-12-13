@@ -10,7 +10,7 @@ export default function MovieCard(props) {
   }
 
   return (
-    <MovieCardContainer className="container" onClick={() => selectMovie(movies)}>
+    <MovieCardContainer className="container" onClick={() => selectMovie(movies)} data-test="movie">
       <img src={movies.posterURL} alt="" />
       <HiddenName className="overlay">
         <div>{movies.title}</div>

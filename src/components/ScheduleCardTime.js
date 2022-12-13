@@ -8,7 +8,7 @@ export default function aScheduleCardTime(props) {
   }
 
   return (
-    <button onClick={() => selectShowTime(showtimes.name)}>
+    <button onClick={() => selectShowTime(showtimes.name)} data-test="showtime">
       {showtimes.name}
     </button>
   );

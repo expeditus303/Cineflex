@@ -44,7 +44,7 @@ export default function SeatsList(props) {
 
   return (
     <>
-      <BackButton onClick={() => navigate(-1)}>
+      <BackButton onClick={() => navigate(-1)} data-test="go-home-header-btn">
         <ion-icon name="arrow-back-outline"></ion-icon>
       </BackButton>
       <SelectSeatStyle>Selecione o(s) assento(s)</SelectSeatStyle>

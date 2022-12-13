@@ -6,7 +6,7 @@ export default function selectedMovie(props) {
 
     return (
         <>
-        <SelectedMovieContainer>
+        <SelectedMovieContainer data-test="footer">
             <div>
                 <img src={selectedMovie.posterURL} alt="" />
             </div>
